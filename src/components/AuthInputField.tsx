@@ -12,6 +12,7 @@ import colors from '@utils/colors';
 
 interface Props {
   label?: string;
+  errorMsg?: string;
   placeholder?: string;
   keyboardType?: TextInputProps['keyboardType'];
   autoCapitalize?: TextInputProps['autoCapitalize'];
@@ -24,6 +25,7 @@ const AuthInputField: FC<Props> = props => {
   const {
     placeholder,
     label,
+    errorMsg,
     keyboardType,
     autoCapitalize,
     secureTextEntry,
@@ -32,7 +34,10 @@ const AuthInputField: FC<Props> = props => {
   } = props;
   return (
     <View style={[styles.container, containerStyle]}>
-      <Text style={styles.label}>{label}</Text>
+      <View style={styles.labelContainer}>
+        <Text style={styles.label}>{label}</Text>
+        <Text style={styles.errorMsg}>{errorMsg}</Text>
+      </View>
       <AppInput
         placeholder={placeholder}
         keyboardType={keyboardType}
@@ -46,8 +51,16 @@ const AuthInputField: FC<Props> = props => {
 
 const styles = StyleSheet.create({
   container: {},
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   label: {
     color: colors.CONTRAST,
+  },
+  errorMsg: {
+    color: colors.ERROR,
   },
 });
 
