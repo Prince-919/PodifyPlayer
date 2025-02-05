@@ -12,6 +12,7 @@ import colors from '@utils/colors';
 
 interface Props {
   label?: string;
+  value?: string;
   errorMsg?: string;
   placeholder?: string;
   keyboardType?: TextInputProps['keyboardType'];
@@ -30,6 +31,7 @@ const AuthInputField: FC<Props> = props => {
     autoCapitalize,
     secureTextEntry,
     containerStyle,
+    value,
     onChange,
   } = props;
   return (
@@ -44,6 +46,7 @@ const AuthInputField: FC<Props> = props => {
         autoCapitalize={autoCapitalize}
         secureTextEntry={secureTextEntry}
         onChangeText={onChange}
+        value={value}
       />
     </View>
   );
