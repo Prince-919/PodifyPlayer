@@ -70,11 +70,11 @@ const AuthInputField: FC<Props> = props => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   labelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    padding: 5,
   },
   label: {
     color: colors.CONTRAST,
