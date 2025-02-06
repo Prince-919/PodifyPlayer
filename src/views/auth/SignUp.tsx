@@ -6,6 +6,8 @@ import * as yup from 'yup';
 import Form from '@components/form';
 import SubmitBtn from '@components/form/SubmitBtn';
 import PasswordVisibilityIcon from '@ui/PasswordVisibilityIcon';
+import AppLink from '@ui/AppLink';
+import CircleUI from '@ui/CircleUI';
 
 const signupSchema = yup.object({
   name: yup
@@ -45,6 +47,10 @@ const SignUp: FC<Props> = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <CircleUI size={200} position="top-left" />
+      <CircleUI size={200} position="top-right" />
+      <CircleUI size={200} position="bottom-left" />
+      <CircleUI size={200} position="bottom-right" />
       <Form
         onSubmit={values => {
           console.warn(values);
@@ -78,6 +84,10 @@ const SignUp: FC<Props> = () => {
           />
 
           <SubmitBtn title="Sign up" />
+          <View style={styles.linkContainer}>
+            <AppLink title="I Lost My Password" />
+            <AppLink title="Sign in" />
+          </View>
         </View>
       </Form>
     </SafeAreaView>
@@ -98,6 +108,12 @@ const styles = StyleSheet.create({
   },
   marginBottom: {
     marginBottom: 20,
+  },
+  linkContainer: {
+    marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 
