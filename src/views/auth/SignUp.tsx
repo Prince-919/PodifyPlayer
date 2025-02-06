@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import colors from '@utils/colors';
-import {StyleSheet, SafeAreaView, View} from 'react-native';
+import {StyleSheet, SafeAreaView, View, Image, Text} from 'react-native';
 import AuthInputField from '@components/form/AuthInputField';
 import * as yup from 'yup';
 import Form from '@components/form';
@@ -51,6 +51,26 @@ const SignUp: FC<Props> = () => {
       <CircleUI size={200} position="top-right" />
       <CircleUI size={200} position="bottom-left" />
       <CircleUI size={200} position="bottom-right" />
+
+      <View style={{width: '100%', marginBottom: 20, paddingHorizontal: 15}}>
+        <Image source={require('../../assets/logo.png')} />
+        <Text
+          style={{
+            color: colors.SECONDARY,
+            fontSize: 25,
+            fontWeight: 'bold',
+            paddingVertical: 5,
+          }}>
+          Welcome
+        </Text>
+        <Text
+          style={{
+            color: colors.CONTRAST,
+            fontSize: 16,
+          }}>
+          Let's get started by creating your account.
+        </Text>
+      </View>
       <Form
         onSubmit={values => {
           console.warn(values);
